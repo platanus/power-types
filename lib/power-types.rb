@@ -1,0 +1,1 @@
+require 'power_types'

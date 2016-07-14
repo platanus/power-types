@@ -1,4 +1,4 @@
-class <%= class_name %> < Command.new(<%= attributes_names.map { |n| ":#{n}" }.join(', ') %>)
+class <%= class_name %> < PowerTypes::Command.new(<%= attributes_names.map { |n| ":#{n}" }.join(', ') %>)
   def perform
     # Command code goes here
   end

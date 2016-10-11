@@ -25,6 +25,7 @@ This will create the MagicMakingService class, inheriting from a base service cl
 
     class MagicMakingService < PowerTypes::Service.new(:foo, bar: nil)
 
+The arguments get available to be used in the service class as instance variables: `@foo` and `@bar`
 Default values for arguments are optional, and can't be defined in the generator, but manually after.  In this case a `nil` value was given for `bar`.
 This is a way to make the argument optional.  If no default value is assigned, the argument will be required, and an error raised if missing.
 

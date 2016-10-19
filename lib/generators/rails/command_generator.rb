@@ -7,7 +7,7 @@ module Rails
     desc "This generator creates a new command at app/commands"
     def create_command
       template('command.rb', "app/commands/#{file_name.underscore}.rb")
-      template('command_spec.rb', "specs/commands/#{file_name.underscore}_spec.rb")
+      template('command_spec.rb', "spec/commands/#{file_name.underscore}_spec.rb")
     end
   end
 end

@@ -8,7 +8,7 @@ module Rails
     def create_service
       return puts "Service name must end with 'Service'" unless class_name.ends_with? "Service"
       template('service.rb', "app/services/#{file_name.underscore}.rb")
-      template('service_spec.rb', "specs/services/#{file_name.underscore}_spec.rb")
+      template('service_spec.rb', "spec/services/#{file_name.underscore}_spec.rb")
     end
   end
 end

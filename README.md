@@ -1,4 +1,5 @@
 # Power-Types
+[![Gem Version](https://badge.fury.io/rb/power-types.svg)](https://badge.fury.io/rb/power-types) [![Build Status](https://travis-ci.org/platanus/power-types.svg?branch=master)](https://travis-ci.org/platanus/power-types) [![Coverage Status](https://coveralls.io/repos/github/platanus/power-types/badge.svg)](https://coveralls.io/github/platanus/power-types)
 
 Rails pattern enforcing types used by the Platanus team
 
@@ -8,7 +9,7 @@ In Rails projects, Platanus encourages  to  use classes beyond models and contro
 These powerful types proposed are Services, Commands, Utils and Values.
 
 For a deeper understanding about the usage of these patterns, feel welcome to read the [related post in Platanus Blog](https://blog.platan.us/services-commands-y-otros-poderosos-patrones-en-rails) (in spanish).
-   
+
 The goal aimed with this gem is to go further, and not just apply this patterns over POROs (plain simple ruby classes).  The gem provides an special structure and syntax to create and run Services and Commands with ease.
 
 It also creates the directory for each type, and provides generators.
@@ -42,20 +43,20 @@ Which will generate the corresponding class, with the `perform` method.  This me
     class MakeMagic < PowerTypes::Command.new(:foo, bar: nil)
 
 And in a similar way to services, the command's spec file is also created by this generator
- 
+
 ### Instantiate and Run
- 
+
 We can create service objects like this
- 
+
     magic_service = MagicMakingService.new(foo: my_foo, bar: "a bar")
 
 And use any method the service provides
-    
+
     magic_service.gandalfize(sauron)
     magic_service.harry_potterize(voldemort)
 
 In the case of commands, we are not suposed to store or reuse the object.  You just want to run it and keep the result
-    
+
     result = MakeMagic.for(foo: a_foo, bar:  "i'm bar")
 
 ### Values and Utils
@@ -68,18 +69,18 @@ Utils should be defined as a module.  There you define the independent but relat
 ```ruby
 module MagicTricks
 extend self
-    
+
     def dissappear(object)
         #blah blah
     end
-    
+
     def shrink(children)
         #bleh bleeh
     end
 
     def shuffle(cards)
         #blaah
-    end  
+    end
 ```
 Example of calling a Util function:
 

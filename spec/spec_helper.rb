@@ -23,4 +23,7 @@ RSpec.configure do |config|
   config.after do
     FileUtils.rm_r Dir.glob File.join(SPEC_TMP_PATH, '*.*')
   end
+
+  config.filter_run focus: true
+  config.run_all_when_everything_filtered = true
 end

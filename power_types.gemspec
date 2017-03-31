@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Ignacio Baixas", "Felipe Balart"]
   spec.email         = ["ignacio@platan.us", "felipe@platan.us"]
 
-  spec.summary       = %q{Power Types for Rails by Platanus}
-  spec.description   = %q{Power Types for Rails by Platanus}
+  spec.summary       = "Power Types for Rails by Platanus"
+  spec.description   = "Power Types for Rails by Platanus"
   spec.homepage      = "https://github.com/platanus/power-types"
   spec.license       = "MIT"
 
@@ -30,4 +30,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pry-remote", "~> 0.1"
   spec.add_development_dependency "pry-byebug", "~> 3.2"
   spec.add_development_dependency "pry-nav", "~> 0.2"
+  spec.add_development_dependency "coveralls"
 end

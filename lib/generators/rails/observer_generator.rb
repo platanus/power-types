@@ -9,9 +9,19 @@ module Rails
     end
 
     def include_observable_mixin
-      line = "class #{class_name} < ActiveRecord::Base"
+      line = "class #{class_name} < #{active_record_klass}"
       gsub_file "app/models/#{file_name.underscore}.rb", /(#{Regexp.escape(line)})/mi do |match|
         "#{match}\n  include PowerTypes::Observable"
+      end
+    end
+
+    private
+
+    def active_record_klass
+      if Rails::VERSION::MAJOR > 4
+        ApplicationRecord
+      else
+        ActiveRecord::Base
       end
     end
   end

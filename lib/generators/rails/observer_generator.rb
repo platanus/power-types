@@ -18,7 +18,7 @@ module Rails
     private
 
     def active_record_klass
-      if Rails::VERSION::MAJOR > 4
+      if :Rails::VERSION::MAJOR > 4
         ApplicationRecord
       else
         ActiveRecord::Base

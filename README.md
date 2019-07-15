@@ -229,7 +229,7 @@ Wizard.create!(name: "Gandalf", villian: "Sauron") #=> This action will trigger 
 
 ### Values and Utils
 
-This two types do not have generators.
+These two types don't have generators.
 
 Values are just simple Ruby classes, but watch out to keep them in the Values directory!
 

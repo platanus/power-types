@@ -8,7 +8,7 @@ Rails pattern enforcing types used by the Platanus team.
 In Rails projects, Platanus encourages to use classes beyond models and controllers to hold the app's logic.
 These powerful types proposed are Services, Commands, Observers, Utils and Values.
 
-For a deeper understanding about the usage of these patterns, feel welcome to read the [related post in Platanus Blog](https://blog.platan.us/services-commands-y-otros-poderosos-patrones-en-rails) (in spanish).
+For a deeper understanding about the usage of these patterns, feel welcome to read the [related post in Platanus Blog](https://blog.platan.us/services-commands-y-otros-poderosos-patrones-en-rails-27c2d3aa7c2e) (in spanish).
 
 The goal aimed with this gem is to go further, and not just apply this patterns over POROs (plain simple ruby classes). The gem provides an special structure and syntax to create and run services, commands and more, with ease.
 

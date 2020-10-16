@@ -46,8 +46,8 @@ describe PowerTypes::Presentable do
   it { expect(presenter.presenter_method).to eq("ABC") }
 
   context "with invalid presenter name" do
-    let(:presenter_name) { :ivalid_presenter }
-    let(:error) { "missing IvalidPresenter presenter class" }
+    let(:presenter_name) { :invalid_presenter }
+    let(:error) { "missing InvalidPresenter presenter class" }
 
     it { expect { presenter }.to raise_error(PowerTypes::PresenterError, error) }
   end

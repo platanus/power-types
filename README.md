@@ -259,6 +259,112 @@ Example of calling a Util function:
 MagicTricks.dissapear(rabbit)
 ```
 
+### Presenters
+
+For generating presenters we use:
+
+```
+$ rails generate presenter users_show
+```
+
+This will create the `UsersShowPresenter` class, inheriting from a base class:
+
+```ruby
+class UsersShowPresenter < PowerTypes::PresenterBase
+end
+```
+
+And its corresponding rspec file:
+
+```ruby
+require 'rails_helper'
+
+describe UsersShowPresenter do
+  pending "add some examples to (or delete) #{__FILE__}"
+end
+```
+
+To initialize a presenter inside your controller action you should execute the `present_with` method with valid params:
+
+```ruby
+class UsersController < InheritedResources::Base
+  def show
+    presenter_params = { param1: 1, param2: 2 }
+    @presenter = present_with(:users_show, presenter_params)
+  end
+end
+```
+
+You can access view helper methods through the `h` method:
+
+```ruby
+class UsersShowPresenter < PowerTypes::PresenterBase
+  def platanus_link
+    h.link_to "Hi Platanus!", "https://platan.us"
+  end
+end
+```
+
+You can access `presenter_params` inside the presenter as an `attr_reader`
+
+```ruby
+class UsersController < InheritedResources::Base
+  def show
+    presenter_params = { platanus_url: "https://platan.us" }
+    @presenter = present_with(:users_show, presenter_params)
+  end
+end
+```
+
+```ruby
+class UsersShowPresenter < PowerTypes::PresenterBase
+  def platanus_link
+    h.link_to "Hi Platanus!", platanus_url
+  end
+end
+```
+
+If the presenter param has a [decorator](https://github.com/drapergem/draper), the `attr_reader` will be decorated.
+
+```ruby
+class UsersController < InheritedResources::Base
+  def show
+    presenter_params = { user: user }
+    @presenter = present_with(:users_show, presenter_params)
+  end
+
+  private
+
+  def user
+    @user ||= User.find!(params[:id])
+  end
+end
+```
+
+```ruby
+class UserDecorator < Draper::Decorator
+  delegate_all
+
+  def cool_view_name
+    "~º#{name}º~"
+  end
+end
+```
+
+```ruby
+class UsersShowPresenter < PowerTypes::PresenterBase
+  def platanus_link
+    h.link_to "Hi #{user.cool_view_name}!", platanus_url
+  end
+end
+```
+
+In the view, you can use it like this:
+
+```
+<div><%= @presenter.platanus_link %></div>
+```
+
 ## Contributing
 
 1. Fork it

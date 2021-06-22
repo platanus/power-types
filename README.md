@@ -1,5 +1,7 @@
 # Power Types
-[![Gem Version](https://badge.fury.io/rb/power-types.svg)](https://badge.fury.io/rb/power-types) [![Build Status](https://travis-ci.org/platanus/power-types.svg?branch=master)](https://travis-ci.org/platanus/power-types) [![Coverage Status](https://coveralls.io/repos/github/platanus/power-types/badge.svg)](https://coveralls.io/github/platanus/power-types)
+[![Gem Version](https://badge.fury.io/rb/power-types.svg)](https://badge.fury.io/rb/power-types)
+[![CircleCI](https://circleci.com/gh/platanus/local_resource.svg?style=shield)](https://app.circleci.com/pipelines/github/platanus/local_resource)
+[![Coverage Status](https://coveralls.io/repos/github/platanus/power-types/badge.svg)](https://coveralls.io/github/platanus/power-types)
 
 Rails pattern enforcing types used by the Platanus team.
 
@@ -28,10 +30,20 @@ bundle install
 
 ## Power types
 
-- [Services](#services)
-- [Commands](#commands)
-- [Observers](#observers)
-- [Values and Utils](#values-and-utils)
+- [Power Types](#power-types)
+  - [Introduction](#introduction)
+  - [Installation](#installation)
+  - [Power types](#power-types-1)
+    - [Services](#services)
+    - [Commands](#commands)
+    - [Observers](#observers)
+    - [Values](#values)
+    - [Presenters](#presenters)
+    - [Utils](#utils)
+  - [Publishing](#publishing)
+  - [Contributing](#contributing)
+  - [Credits](#credits)
+  - [License](#license)
 
 ### Services
 
@@ -404,6 +416,17 @@ Every util will inherit from the class `PowerTypes::BaseUtil` which raises an er
 NumbersUtil.clean('5.000') # -> 5000
 NumbersUtil.double(100) # -> 200
 ```
+
+## Publishing
+
+On master/main branch...
+
+1. Change `VERSION` in `lib/power-types/version.rb`.
+2. Change `Unreleased` title to current version in `CHANGELOG.md`.
+3. Run `bundle install`.
+4. Commit new release. For example: `Releasing v0.1.0`.
+5. Create tag. For example: `git tag v0.1.0`.
+6. Push tag. For example: `git push origin v0.1.0`.
 
 ## Contributing
 

@@ -201,7 +201,7 @@ describe MyModelObserver do
 end
 ```
 
-Now, suppose you have defined the following model (with name and villian attributes) and observer:
+Now, suppose you have defined the following model (with name and villain attributes) and observer:
 
 ```ruby
 class Wizard < ActiveRecord::Base
@@ -214,7 +214,7 @@ class WizardObserver < PowerTypes::Observer
   after_create :kill_villain
 
   def kill_villain
-    p "#{object.name} have killed #{object.villian}"
+    p "#{object.name} has killed #{object.villain}"
   end
 end
 ```
@@ -222,10 +222,28 @@ end
 Then, you can use it like this:
 
 ```ruby
-Wizard.create!(name: "Gandalf", villian: "Sauron") #=> This action will trigger the method kill_villian defined in the WizardObserver's after_create callback.
+Wizard.create!(name: "Gandalf", villain: "Sauron") #=> This action will trigger the method kill_villain defined in the WizardObserver's after_create callback.
 ```
 
 > As you can guess, `object` holds the Wizard instance.
+
+You can trigger multiple methods on the same callback. For example:
+
+```ruby
+class WizardObserver < PowerTypes::Observer
+  after_create :kill_villain
+  after_create :bury_villains_corpse
+
+  def kill_villain
+    p "#{object.name} has killed #{object.villain}"
+  end
+
+  def bury_villains_corpse
+    p "#{object.name} has buried #{object.villain}'s corpse"
+  end
+end
+```
+Note: Triggering the event will preserve the order of the methods, so in the example `kill_villain` will be called before `bury_villains_corpse`.
 
 ### Values and Utils
 

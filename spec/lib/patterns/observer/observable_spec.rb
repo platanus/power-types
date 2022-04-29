@@ -21,6 +21,10 @@ describe PowerTypes::Observable do
       def _run_destroy_callbacks
         "destroy"
       end
+
+      def _run_commit_callbacks
+        "commit"
+      end
     end
 
     class Klass < BaseKlass

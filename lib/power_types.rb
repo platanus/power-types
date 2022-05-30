@@ -10,6 +10,7 @@ require "power_types/patterns/observer/observer"
 require "power_types/patterns/observer/trigger"
 require "power_types/patterns/presenter/base_presenter"
 require "power_types/patterns/presenter/presentable"
+require "power_types/patterns/base_util"
 
 module PowerTypes
 end

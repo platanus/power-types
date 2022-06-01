@@ -245,37 +245,11 @@ end
 ```
 Note: Triggering the event will preserve the order of the methods, so in the example `kill_villain` will be called before `bury_villains_corpse`.
 
-### Values and Utils
+### Values
 
-These two types don't have generators.
+This pattern doesn't have a generator.
 
 Values are just simple Ruby classes, but watch out to keep them in the Values directory!
-
-Utils should be defined as a module.  There you define the independent but related functions.  Use the extend self pattern to call them directly after the module name.
-
-```ruby
-module MagicTricks
-  extend self
-
-  def dissappear(object)
-    #blah blah
-  end
-
-  def shrink(children)
-    #bleh bleeh
-  end
-
-  def shuffle(cards)
-    #blaah
-  end
-end  
-```
-
-Example of calling a Util function:
-
-```ruby
-MagicTricks.dissapear(rabbit)
-```
 
 ### Presenters
 
@@ -381,6 +355,54 @@ In the view, you can use it like this:
 
 ```
 <div><%= @presenter.platanus_link %></div>
+```
+
+### Utils
+
+To generate a util we use:
+
+```
+$ bundle exec rails g util Numbers clean double
+```
+
+This will generate the `NumbersUtil` class in the `app/utils` directory, as follows:
+
+```ruby
+class NumbersUtil < PowerTypes::BaseUtil
+
+  def self.clean
+    # Method code goes here
+  end
+
+  def self.double
+    # Method code goes here
+  end
+
+end
+```
+
+And it will generate the spec file as well, in the `spec/utils` directory:
+
+```ruby
+require 'rails_helper'
+
+describe NumbersUtil do
+  describe '#clean' do
+    pending 'describe what the util method clean does here'
+  end
+
+  describe '#double' do
+    pending 'describe what the util method double does here'
+  end
+
+end
+```
+
+Every util will inherit from the class `PowerTypes::BaseUtil` which raises an error when the initialize method is called. The purpose of this is to ensure that all the utils methods work as class methods. Thus, there is no need to create an instance of the util to use its methods. For instance, we could use the `NumbersUtil` as follows:
+
+```ruby
+NumbersUtil.clean('5.000') # -> 5000
+NumbersUtil.double(100) # -> 200
 ```
 
 ## Contributing

@@ -1,4 +1,3 @@
-# coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'power_types/version'
@@ -20,18 +19,15 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "activesupport"
-  spec.add_development_dependency "bundler", "~> 2.1.4"
+
+  spec.add_development_dependency "bundler", "~> 2.2.15"
   spec.add_development_dependency "coveralls"
   spec.add_development_dependency "guard", "~> 2.11"
   spec.add_development_dependency "guard-rspec", "~> 4.5"
   spec.add_development_dependency "pry", "~> 0.10"
-  spec.add_development_dependency "pry-byebug", "~> 3.2"
-  spec.add_development_dependency "pry-nav", "~> 0.2"
-  spec.add_development_dependency "pry-remote", "~> 0.1"
   spec.add_development_dependency "rake", "~> 10.4"
   spec.add_development_dependency "rspec", "~> 3.1"
-  spec.add_development_dependency "rspec-nc", "~> 0.2"
+  spec.add_development_dependency "rspec_junit_formatter"
   spec.add_development_dependency "rubocop", "0.66"
   spec.add_development_dependency "rubocop-rspec"
-  spec.add_development_dependency "terminal-notifier-guard", "~> 1.6", ">= 1.6.1"
 end

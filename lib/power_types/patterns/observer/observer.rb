@@ -1,5 +1,7 @@
 module PowerTypes
   class Observer
+    include AfterCommitEverywhere
+
     attr_reader :object
 
     PowerTypes::Util::OBSERVABLE_EVENTS.each do |event|
@@ -33,6 +35,22 @@ module PowerTypes
 
     def initialize(_object)
       @object = _object
+    end
+
+    PowerTypes::Util::OBSERVABLE_TRANSACTIONAL_EVENTS.each do |event|
+      PowerTypes::Util::OBSERVABLE_TYPES.each do |type|
+        next unless type == :after
+
+        method_name = "#{type}_#{event}"
+        callback = method_name.gsub('_commit', '')
+        define_singleton_method(method_name) do |method|
+          send(callback) { execute_method_after_commit(method) }
+        end
+      end
+    end
+
+    def execute_method_after_commit(method)
+      after_commit { send(method) }
     end
   end
 end

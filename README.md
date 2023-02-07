@@ -257,7 +257,7 @@ end
 ```
 Note: Triggering the event will preserve the order of the methods, so in the example `kill_villain` will be called before `bury_villains_corpse`.
 
-Recently we added three new callbacks, `after_create_commit`, `after_update_commit` and `after_save_commit`. With these callbacks we want to reproduce the `after_commit` transactional callback from Active Record. For this implementation we use the gem [After Commit Everywhere](https://github.com/Envek/after_commit_everywhere) to be able to use the `after_commit` callbacks outside the Active Record models.
+Recently we added four new callbacks, `after_create_commit`, `after_update_commit`, `after_save_commit` and `after_destroy_commit`. With these callbacks we want to reproduce the `after_commit` transactional callback from Active Record. For this implementation we use the gem [After Commit Everywhere](https://github.com/Envek/after_commit_everywhere) to be able to use the `after_commit` callbacks outside the Active Record models.
 
 ### Values
 

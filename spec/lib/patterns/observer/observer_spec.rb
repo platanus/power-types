@@ -82,5 +82,12 @@ describe PowerTypes::Observer do
 
       it_behaves_like 'after_commit_callback'
     end
+
+    describe '#after_destroy_commit' do
+      let(:execute_callback) { described_class.after_destroy_commit(method) }
+      let(:callback) { :after_destroy }
+
+      it_behaves_like 'after_commit_callback'
+    end
   end
 end

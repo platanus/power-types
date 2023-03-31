@@ -20,9 +20,9 @@ module PowerTypes
     attr_reader :h
 
     def decorated_value(value)
-      return value unless value.respond_to?(:decorate)
-
       value.decorate
+    rescue NameError
+      value
     end
   end
 end

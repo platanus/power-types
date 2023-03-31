@@ -296,7 +296,7 @@ To initialize a presenter inside your controller action you should execute the `
 class UsersController < InheritedResources::Base
   def show
     presenter_params = { param1: 1, param2: 2 }
-    @presenter = present_with(:users_show, presenter_params)
+    @presenter = present_with(:users_show_presenter, presenter_params)
   end
 end
 ```
@@ -317,7 +317,7 @@ You can access `presenter_params` inside the presenter as an `attr_reader`
 class UsersController < InheritedResources::Base
   def show
     presenter_params = { platanus_url: "https://platan.us" }
-    @presenter = present_with(:users_show, presenter_params)
+    @presenter = present_with(:users_show_presenter, presenter_params)
   end
 end
 ```
@@ -336,7 +336,7 @@ If the presenter param has a [decorator](https://github.com/drapergem/draper), t
 class UsersController < InheritedResources::Base
   def show
     presenter_params = { user: user }
-    @presenter = present_with(:users_show, presenter_params)
+    @presenter = present_with(:users_show_presenter, presenter_params)
   end
 
   private

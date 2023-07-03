@@ -1,9 +1,10 @@
 # Changelog
 
-## Unreleased
+## 0.7.0
 
-Features
+Added
   - Add after_destroy_commit callback [#25](https://github.com/platanus/power-types/pull/25)
+  - Add Ruby 3.2 support
 
-Fixes
+Fixed
   - Fix presenter params decoration [#26](https://github.com/platanus/power-types/pull/26)
